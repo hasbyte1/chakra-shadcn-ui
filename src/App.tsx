@@ -29,7 +29,7 @@ import {
 function App() {
   return (
     <Provider>
-      <Box minH="100vh" bg="bg">
+      <Box minH="100vh" width="100vw" bg="bg">
         {/* Navigation */}
         <Box
           as="nav"
