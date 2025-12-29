@@ -1,4 +1,4 @@
-import { Box, type BoxProps } from "@chakra-ui/react"
+import { Box, useRecipe, type BoxProps } from "@chakra-ui/react"
 import { forwardRef } from "react"
 
 export interface BadgeProps extends BoxProps {
@@ -7,9 +7,12 @@ export interface BadgeProps extends BoxProps {
 }
 
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, variant, colorScheme, ...props }, ref) => {
+    const recipe = useRecipe({ key: "badge" })
+    const styles = recipe({ variant, colorScheme } as any)
+
     return (
-      <Box ref={ref} {...props}>
+      <Box ref={ref} {...styles} data-variant={variant} data-color-scheme={colorScheme} {...props}>
         {children}
       </Box>
     )

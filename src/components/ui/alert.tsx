@@ -1,4 +1,4 @@
-import { Box, type BoxProps } from "@chakra-ui/react"
+import { Box, useRecipe, type BoxProps } from "@chakra-ui/react"
 import { forwardRef } from "react"
 import {
   FaCircleInfo,
@@ -20,10 +20,12 @@ const iconMap = {
 
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   ({ children, status = "info", ...props }, ref) => {
+    const recipe = useRecipe({ key: "alert" })
+    const styles = recipe({ status })
     const Icon = iconMap[status]
 
     return (
-      <Box ref={ref} {...props}>
+      <Box ref={ref} {...styles} {...props}>
         <Icon style={{ flexShrink: 0 }} />
         <Box flex="1">{children}</Box>
       </Box>

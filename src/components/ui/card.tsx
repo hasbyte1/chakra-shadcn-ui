@@ -1,4 +1,4 @@
-import { Box, type BoxProps } from "@chakra-ui/react"
+import { Box, useRecipe, type BoxProps } from "@chakra-ui/react"
 import { forwardRef } from "react"
 
 export interface CardProps extends BoxProps {
@@ -7,9 +7,12 @@ export interface CardProps extends BoxProps {
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, variant, size, ...props }, ref) => {
+    const recipe = useRecipe({ key: "card" })
+    const styles = recipe({ variant, size })
+
     return (
-      <Box ref={ref} {...props}>
+      <Box ref={ref} {...styles} {...props}>
         {children}
       </Box>
     )
