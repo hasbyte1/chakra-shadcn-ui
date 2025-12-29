@@ -20,3 +20,21 @@ export type { AlertProps } from "./alert"
 
 export { Container } from "./container"
 export type { ContainerProps } from "./container"
+
+export { Tabs, TabsRoot, TabsList, TabsTrigger, TabsContent, TabsIndicator } from "./tabs"
+export type { TabsRootProps } from "./tabs"
+
+export { Dialog } from "./dialog"
+export type { DialogRootProps } from "./dialog"
+
+export { Menu } from "./menu"
+export type { MenuRootProps } from "./menu"
+
+export { Switch } from "./switch"
+export type { SwitchRootProps } from "./switch"
+
+export { Checkbox } from "./checkbox"
+export type { CheckboxRootProps } from "./checkbox"
+
+export { RadioGroup } from "./radio"
+export type { RadioGroupRootProps } from "./radio"

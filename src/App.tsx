@@ -7,6 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 import { Container } from "@/components/ui/container"
+import { Tabs } from "@/components/ui/tabs"
+import { Dialog } from "@/components/ui/dialog"
+import { Menu } from "@/components/ui/menu"
+import { Switch } from "@/components/ui/switch"
+import { Checkbox } from "@/components/ui/checkbox"
+import { RadioGroup } from "@/components/ui/radio"
+import { toaster } from "@/components/ui/toaster"
 import { Hero, Features, CTA, Pricing, Stats } from "@/components/blocks"
 import {
   FaRocket,
@@ -15,6 +22,8 @@ import {
   FaPalette,
   FaCode,
   FaMobile,
+  FaEllipsisVertical,
+  FaXmark,
 } from "react-icons/fa6"
 
 function App() {
@@ -304,6 +313,191 @@ function App() {
                     </CardFooter>
                   </Card>
                 </SimpleGrid>
+              </Stack>
+
+              {/* Tabs */}
+              <Stack gap="6">
+                <Heading as="h3" fontSize="2xl" fontWeight="semibold">
+                  Tabs
+                </Heading>
+                <Tabs.Root defaultValue="tab1">
+                  <Tabs.List>
+                    <Tabs.Trigger value="tab1">Overview</Tabs.Trigger>
+                    <Tabs.Trigger value="tab2">Features</Tabs.Trigger>
+                    <Tabs.Trigger value="tab3">Documentation</Tabs.Trigger>
+                  </Tabs.List>
+                  <Tabs.Content value="tab1">
+                    <Text>
+                      This is the overview tab content. Tabs help organize content
+                      into separate views where only one view is visible at a time.
+                    </Text>
+                  </Tabs.Content>
+                  <Tabs.Content value="tab2">
+                    <Text>
+                      Features tab content goes here. You can switch between tabs
+                      to see different content sections.
+                    </Text>
+                  </Tabs.Content>
+                  <Tabs.Content value="tab3">
+                    <Text>
+                      Documentation tab content. Tabs are great for progressive
+                      disclosure and reducing cognitive load.
+                    </Text>
+                  </Tabs.Content>
+                </Tabs.Root>
+              </Stack>
+
+              {/* Form Controls */}
+              <Stack gap="6">
+                <Heading as="h3" fontSize="2xl" fontWeight="semibold">
+                  Form Controls
+                </Heading>
+                <Stack gap="4">
+                  <Box>
+                    <Text fontSize="sm" fontWeight="medium" mb="3" color="fg.muted">
+                      Switches
+                    </Text>
+                    <Flex gap="4" align="center" flexDirection="column" alignItems="flex-start">
+                      <Switch.Root>
+                        <Switch.Control>
+                          <Switch.Thumb />
+                        </Switch.Control>
+                        <Switch.Label>Enable notifications</Switch.Label>
+                      </Switch.Root>
+                      <Switch.Root size="sm">
+                        <Switch.Control>
+                          <Switch.Thumb />
+                        </Switch.Control>
+                        <Switch.Label>Small</Switch.Label>
+                      </Switch.Root>
+                      <Switch.Root size="lg">
+                        <Switch.Control>
+                          <Switch.Thumb />
+                        </Switch.Control>
+                        <Switch.Label>Large</Switch.Label>
+                      </Switch.Root>
+                    </Flex>
+                  </Box>
+                  <Box>
+                    <Text fontSize="sm" fontWeight="medium" mb="3" color="fg.muted">
+                      Checkboxes
+                    </Text>
+                    <Stack gap="2">
+                      <Checkbox.Root>
+                        <Checkbox.Control />
+                        <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
+                      </Checkbox.Root>
+                      <Checkbox.Root defaultChecked>
+                        <Checkbox.Control />
+                        <Checkbox.Label>Subscribe to newsletter</Checkbox.Label>
+                      </Checkbox.Root>
+                      <Checkbox.Root disabled>
+                        <Checkbox.Control />
+                        <Checkbox.Label>Disabled option</Checkbox.Label>
+                      </Checkbox.Root>
+                    </Stack>
+                  </Box>
+                  <Box>
+                    <Text fontSize="sm" fontWeight="medium" mb="3" color="fg.muted">
+                      Radio Buttons
+                    </Text>
+                    <RadioGroup.Root defaultValue="option1">
+                      <Stack gap="2">
+                        <RadioGroup.Item value="option1">
+                          <RadioGroup.ItemControl />
+                          <RadioGroup.ItemText>Option 1</RadioGroup.ItemText>
+                        </RadioGroup.Item>
+                        <RadioGroup.Item value="option2">
+                          <RadioGroup.ItemControl />
+                          <RadioGroup.ItemText>Option 2</RadioGroup.ItemText>
+                        </RadioGroup.Item>
+                        <RadioGroup.Item value="option3">
+                          <RadioGroup.ItemControl />
+                          <RadioGroup.ItemText>Option 3</RadioGroup.ItemText>
+                        </RadioGroup.Item>
+                      </Stack>
+                    </RadioGroup.Root>
+                  </Box>
+                </Stack>
+              </Stack>
+
+              {/* Interactive Components */}
+              <Stack gap="6">
+                <Heading as="h3" fontSize="2xl" fontWeight="semibold">
+                  Interactive Components
+                </Heading>
+                <Flex gap="4" flexWrap="wrap">
+                  {/* Dialog */}
+                  <Dialog.Root>
+                    <Dialog.Trigger asChild>
+                      <Button>Open Dialog</Button>
+                    </Dialog.Trigger>
+                    <Dialog.Backdrop />
+                    <Dialog.Positioner>
+                      <Dialog.Content>
+                        <Dialog.Header>
+                          <Dialog.Title>Dialog Title</Dialog.Title>
+                        </Dialog.Header>
+                        <Dialog.Body>
+                          <Text>
+                            This is a dialog component. It's great for displaying important
+                            information or getting user confirmation before proceeding.
+                          </Text>
+                        </Dialog.Body>
+                        <Dialog.Footer>
+                          <Dialog.ActionTrigger asChild>
+                            <Button variant="outline">Cancel</Button>
+                          </Dialog.ActionTrigger>
+                          <Dialog.ActionTrigger asChild>
+                            <Button>Confirm</Button>
+                          </Dialog.ActionTrigger>
+                        </Dialog.Footer>
+                        <Dialog.CloseTrigger asChild>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            position="absolute"
+                            top="2"
+                            right="2"
+                          >
+                            <FaXmark />
+                          </Button>
+                        </Dialog.CloseTrigger>
+                      </Dialog.Content>
+                    </Dialog.Positioner>
+                  </Dialog.Root>
+
+                  {/* Menu */}
+                  <Menu.Root>
+                    <Menu.Trigger asChild>
+                      <Button variant="outline">
+                        <FaEllipsisVertical />
+                      </Button>
+                    </Menu.Trigger>
+                    <Menu.Content>
+                      <Menu.Item value="edit">Edit</Menu.Item>
+                      <Menu.Item value="duplicate">Duplicate</Menu.Item>
+                      <Menu.Separator />
+                      <Menu.Item value="archive">Archive</Menu.Item>
+                      <Menu.Item value="delete" color="color.error">
+                        Delete
+                      </Menu.Item>
+                    </Menu.Content>
+                  </Menu.Root>
+
+                  {/* Toast */}
+                  <Button
+                    onClick={() =>
+                      toaster.create({
+                        title: "Success!",
+                        description: "Your action was completed successfully.",
+                        type: "success",
+                      })
+                    }
+                  >
+                    Show Toast
+                  </Button>
+                </Flex>
               </Stack>
             </Stack>
           </Container>
