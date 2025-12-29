@@ -38,3 +38,23 @@ export type { CheckboxRootProps } from "./checkbox"
 
 export { RadioGroup } from "./radio"
 export type { RadioGroupRootProps } from "./radio"
+
+export { Avatar } from "./avatar"
+export type { AvatarRootProps } from "./avatar"
+
+export { Textarea } from "./textarea"
+export type { TextareaProps } from "./textarea"
+
+export { Separator } from "./separator"
+export type { SeparatorProps } from "./separator"
+
+export { Field_ } from "./field"
+
+export { Select } from "./select"
+export type { SelectProps } from "./select"
+
+export { PinInput } from "./pin-input"
+export type { PinInputRootProps } from "./pin-input"
+
+export { Calendar } from "./calendar"
+export type { CalendarProps } from "./calendar"
